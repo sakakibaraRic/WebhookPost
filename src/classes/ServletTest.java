@@ -1,7 +1,6 @@
 package classes;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +15,5 @@ public class ServletTest extends HttpServlet {
 
         response.setContentType("text/html; charset=Shift_JIS");
         response.setStatus(200);
-        PrintWriter out = response.getWriter();
-        out.println("<html><head></head><body>");
-        out.println("<p>POSTリクエストを受信</p>");
-        out.println("</body></html>");
     }
 }
