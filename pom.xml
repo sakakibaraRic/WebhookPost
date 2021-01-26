@@ -6,6 +6,7 @@
   <groupId>com.example</groupId>
   <artifactId>java-getting-started</artifactId>
   <version>1.0</version>
+  <packaging>war</packaging>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
