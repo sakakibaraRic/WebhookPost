@@ -8,9 +8,6 @@
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <parent>
-  </parent>
-
   <properties>
   </properties>
 
