@@ -1,4 +1,4 @@
-package classes;
+package main.java.com.example;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/WebhookSubscription")
-public class ServletTest extends HttpServlet {
+public class Main extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
