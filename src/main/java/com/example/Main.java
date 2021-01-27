@@ -85,7 +85,7 @@ public class Main extends HttpServlet {
   @RequestMapping("/WebhookSubscription")
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-	  String validationToken = "test";
+	  String validationToken = request.getParameter("validationToken");
 
       response.setContentType("text/plain; charset=Shift_JIS");
       response.setStatus(200);
