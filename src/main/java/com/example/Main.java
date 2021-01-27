@@ -17,6 +17,7 @@
 package com.example;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -84,9 +85,13 @@ public class Main extends HttpServlet {
   @RequestMapping("/WebhookSubscription")
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
+	  String validationToken = "test";
 
-      response.setContentType("text/html; charset=Shift_JIS");
+      response.setContentType("text/plain; charset=Shift_JIS");
       response.setStatus(200);
+
+	  PrintWriter out = response.getWriter();
+	  out.println(validationToken);
   }
 
   @Bean
