@@ -18,6 +18,7 @@ package com.example;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -85,7 +86,7 @@ public class Main extends HttpServlet {
   @RequestMapping("/WebhookSubscription")
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-	  String validationToken = request.getParameter("validationToken");
+	  String validationToken = URLDecoder.decode(request.getParameter("validationToken"), "UTF-8");
 
       response.setContentType("text/plain; charset=Shift_JIS");
       response.setStatus(200);
