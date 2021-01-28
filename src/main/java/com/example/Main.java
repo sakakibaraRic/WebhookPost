@@ -93,7 +93,7 @@ public class Main extends HttpServlet {
       response.setStatus(200);
 
 	  PrintWriter out = response.getWriter();
-	  out.println(validationToken);
+	  out.write(validationToken);
   }
 
   @Bean
