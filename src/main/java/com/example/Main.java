@@ -88,7 +88,7 @@ public class Main extends HttpServlet {
           throws ServletException, IOException {
 	  String validationToken = URLDecoder.decode(request.getParameter("validationToken"), "UTF-8");
 
-      response.setContentType("text/plain; charset=Shift_JIS");
+      response.setContentType("text/plain");
       response.setStatus(200);
 
 	  PrintWriter out = response.getWriter();
