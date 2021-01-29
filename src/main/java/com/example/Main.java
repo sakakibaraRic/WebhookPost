@@ -97,9 +97,11 @@ public class Main extends HttpServlet {
 		  PrintWriter out = response.getWriter();
 		  out.write(validationToken);
 	  }else {
-		  System.out.println("変更通知");
-	      response.setContentType("text/plain");
-	      response.setStatus(202);
+		  if(request.getParameter("clientState").equals("mywebhooktest")){
+			  System.out.println("変更通知");
+			  response.setContentType("text/plain");
+			  response.setStatus(202);
+		  }
 	  }
   }
 
