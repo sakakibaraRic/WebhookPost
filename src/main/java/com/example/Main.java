@@ -87,14 +87,20 @@ public class Main extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
 	  String validationToken = request.getParameter("validationToken");
-	  if(validationToken!=null) validationToken = URLDecoder.decode(validationToken, "UTF-8");
-	  System.out.println(validationToken);
+	  if(validationToken!=null) {
+		  validationToken = URLDecoder.decode(validationToken, "UTF-8");
+		  System.out.println(validationToken);
 
-      response.setContentType("text/plain");
-      response.setStatus(200);
+	      response.setContentType("text/plain");
+	      response.setStatus(200);
 
-	  PrintWriter out = response.getWriter();
-	  out.write(validationToken);
+		  PrintWriter out = response.getWriter();
+		  out.write(validationToken);
+	  }else {
+		  System.out.println("変更通知");
+	      response.setContentType("text/plain");
+	      response.setStatus(202);
+	  }
   }
 
   @Bean
