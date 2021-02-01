@@ -16,6 +16,7 @@
 
 package com.example;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
@@ -25,6 +26,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -97,8 +100,11 @@ public class Main extends HttpServlet {
 		  PrintWriter out = response.getWriter();
 		  out.write(validationToken);
 	  } else {
+		  BufferedReader reader = request.getReader();
+		  Stream<String> lines = reader.lines();
+		  String result = lines.collect(Collectors.joining("\r\n"));
 		  System.out.println("変更通知");
-		  System.out.println(request.getRequestURI());
+		  System.out.println(result);
 		  response.setContentType("text/plain");
 		  response.setStatus(202);
 	  }
