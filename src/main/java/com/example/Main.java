@@ -87,7 +87,7 @@ public class Main extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
 	  String validationToken = request.getParameter("validationToken");
-	  if(validationToken!=null) {
+	  if(validationToken != null) {
 		  validationToken = URLDecoder.decode(validationToken, "UTF-8");
 		  System.out.println(validationToken);
 
@@ -96,7 +96,7 @@ public class Main extends HttpServlet {
 
 		  PrintWriter out = response.getWriter();
 		  out.write(validationToken);
-	  }else {
+	  } else {
 		  if(request.getParameter("clientState").equals("mywebhooktest")){
 			  System.out.println("変更通知");
 			  System.out.println(request.getRequestURI());
