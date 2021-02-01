@@ -99,6 +99,7 @@ public class Main extends HttpServlet {
 	  }else {
 		  if(request.getParameter("clientState").equals("mywebhooktest")){
 			  System.out.println("変更通知");
+			  System.out.println(request.getRequestURI());
 			  response.setContentType("text/plain");
 			  response.setStatus(202);
 		  }
