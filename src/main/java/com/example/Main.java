@@ -86,11 +86,13 @@ public class Main extends HttpServlet {
     }
   }
 
+  // 変更通知関連処理ここから
   @RequestMapping("/WebhookSubscription")
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
 	  String validationToken = request.getParameter("validationToken");
 	  if(validationToken != null) {
+		  // バリデーショントークンが存在する場合はサブスクリプション作成検証
 		  validationToken = URLDecoder.decode(validationToken, "UTF-8");
 		  System.out.println(validationToken);
 
@@ -98,8 +100,10 @@ public class Main extends HttpServlet {
 	      response.setStatus(200);
 
 		  PrintWriter out = response.getWriter();
+		  // 検証のためデコードしたバリデーショントークンを返却
 		  out.write(validationToken);
 	  } else {
+		  // バリデーショントークンが存在しない場合は実際の変更通知
 		  BufferedReader reader = request.getReader();
 		  Stream<String> lines = reader.lines();
 		  String result = lines.collect(Collectors.joining("\r\n"));
@@ -109,6 +113,7 @@ public class Main extends HttpServlet {
 		  response.setStatus(202);
 	  }
   }
+  // ここまで
 
   @Bean
   public DataSource dataSource() throws SQLException {
