@@ -106,7 +106,7 @@ public class Main extends HttpServlet {
 		  // バリデーショントークンが存在しない場合は実際の変更通知
 		  BufferedReader reader = request.getReader();
 		  Stream<String> lines = reader.lines();
-		  String result = lines.collect(Collectors.joining("\r\n"));
+		  String result = lines.collect(Collectors.joining(""));
 		  System.out.println("変更通知");
 		  System.out.println(result);
 		  response.setContentType("text/plain");
