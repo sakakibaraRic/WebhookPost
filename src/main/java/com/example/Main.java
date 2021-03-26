@@ -91,6 +91,7 @@ public class Main extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
 	  String validationToken = request.getParameter("validationToken");
+	  System.out.println("ContentType:"+request.getContentType());
 	  if(validationToken != null) {
 		  // バリデーショントークンが存在する場合はサブスクリプション作成検証
 		  validationToken = URLDecoder.decode(validationToken, "UTF-8");
